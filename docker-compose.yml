@@ -1,0 +1,20 @@
+services:
+  web:
+    container_name: vivpro_backend
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8000:80"
+    volumes:
+      - .:/code/
+    # depends_on:
+    #   - db
+    restart: unless-stopped
+    networks:
+      - vivpro_network
+
+networks:
+  vivpro_network:
+volumes:
+  postgres_data:
