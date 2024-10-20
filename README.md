@@ -14,6 +14,10 @@ WITH DOCKER:
 
 1. Just run the following command to start the project:
 
+-- add the postgresql database details in the .env file
+
+-- then run the following command:
+
 `docker compose build && docker compose up -d`
 
 WITHOUT DOCKER:
@@ -25,6 +29,11 @@ WITHOUT DOCKER:
 
 -- then install the dependencies
 `uv sync`
+
+-- add the postgresql database details in the .env file
+
+-- run the migrations
+`uv run alembic upgrade head`
 
 -- then run the project
 `uvicorn app.main:app --reload` or `uv run fastapi dev`
